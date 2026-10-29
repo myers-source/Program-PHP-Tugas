@@ -1,0 +1,21 @@
+<?php
+function cekLembur($gol) {
+    if ($gol == 'A') return 50000;
+    if ($gol == 'B') return 75000;
+    return 100000;
+}
+
+$gol = "B";
+$hariKerja = 6;
+$hariLembur = 3;
+$gajiPokok = 150000;
+$totalGaji = 0;
+
+for ($i = 1; $i <= $hariKerja; $i++) {
+    $lembur = ($i <= $hariLembur) ? cekLembur($gol) : 0;
+    $totalGaji += $gajiPokok + $lembur;
+    echo "Hari $i: +Rp " . number_format($gajiPokok + $lembur) . "\n";
+}
+
+echo "Total Terima: Rp " . number_format($totalGaji);
+?>
