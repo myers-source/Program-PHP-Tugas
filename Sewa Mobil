@@ -1,0 +1,21 @@
+<?php
+function hitungTarif($jenis) {
+    return (strtolower($jenis) == 'sedan') ? 300000 : 500000;
+}
+
+$jenis = "SUV";
+$hari = 5;
+$tarif = hitungTarif($jenis);
+$total = 0;
+
+for ($i = 1; $i <= $hari; $i++) {
+    $total += $tarif;
+    echo "Hari $i: Rp " . number_format($total) . "\n";
+}
+
+if ($hari > 3) {
+    $total *= 0.9; // Diskon 10%
+}
+
+echo "Total Bayar: Rp " . number_format($total);
+?>
