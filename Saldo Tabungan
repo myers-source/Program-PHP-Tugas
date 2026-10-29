@@ -1,0 +1,14 @@
+<?php
+function cekBonus($setoran) {
+    return ($setoran >= 500000) ? 20000 : 0;
+}
+
+$saldo = 1000000;
+$setoran = 500000;
+$bulan = 6;
+
+for ($i = 1; $i <= $bulan; $i++) {
+    $saldo += $setoran + cekBonus($setoran);
+    echo "Bulan $i: Saldo Rp " . number_format($saldo) . "\n";
+}
+?>
